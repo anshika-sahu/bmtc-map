@@ -26,4 +26,9 @@ longitudes_list = list(data[longitude_column])
 each_object = {bus_stop_column_name: bus_stops_list,
                latitude_column: latitudes_list, longitude_column: longitudes_list}
 
-print(json.dumps(each_object))
+
+final_output = "var data = " + json.dumps(each_object)
+
+fh = open("coordinate_data.js", "w")
+fh.write(final_output)
+fh.close()
