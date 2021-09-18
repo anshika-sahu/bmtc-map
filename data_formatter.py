@@ -1,14 +1,14 @@
 import pandas as pd
 import json
 
-# ---------------------------------
+# -----------------------------------------------
+# FOR THE USER TO UPDATE COLUMN NAMES
 
-filename = "plotting lat long data.xlsx"
-
-bus_stop_column_name = "bus_stop_name"
+filename = "depot_lat_long_coordinates.xlsx"
+bus_stop_column_name = "depot_start_point"
 latitude_column = "latitude_current"
 longitude_column = "longitude_current"
-# ---------------------------------
+# -----------------------------------------------
 
 
 # data loading

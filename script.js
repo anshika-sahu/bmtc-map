@@ -1,12 +1,16 @@
 window.onload = function () {
 
+    // ------------------------------------------
+    // FOR THE USER TO UPDATE THE COLUMN NAMES
+    const name_column = "depot_start_point";
+    const latitude_column = "latitude_current";
+    const longitude_column = "longitude_current";
+    // ------------------------------------------
 
+    bangalore_center_latitude = 12.95456329;
+    bangalore_center_longitude = 77.59526879;
 
-    center_latitude = data.latitude_current[0];
-    center_longitude = data.longitude_current[0];
-    // [12.97582743, 77.60564176]
-
-    var mymap = L.map('mapid').setView([center_latitude, center_longitude], 12);
+    var mymap = L.map('mapid').setView([bangalore_center_latitude, bangalore_center_longitude], 11);
 
     var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -19,12 +23,12 @@ window.onload = function () {
     var bangalore_outer_tile = L.geoJson(bangalore_outer_geojson);
     bangalore_outer_tile.addTo(mymap);
 
-    var data_size = data.bus_stop_name.length
+    var data_size = data.depot_start_point.length
 
     for (var i = 0; i < data_size; i++) {
-        bus_stop_name = data.bus_stop_name[i];
-        latitude = data.latitude_current[i];
-        longitude = data.longitude_current[i];
+        bus_stop_name = data[name_column][i];
+        latitude = data[latitude_column][i];
+        longitude = data[longitude_column][i];
 
         L.marker([latitude
             , longitude
